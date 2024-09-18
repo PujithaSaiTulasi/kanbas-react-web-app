@@ -269,21 +269,8 @@ export default function Lab1() {
           Please <a id="wd-lipsum" href="https://www.lipsum.com">click here</a> to get dummy text<br/>
           <a id="wd-github" href="https://github.com/PujithaSaiTulasi/kanbas-react-web-app">Github</a>
 
-
-
-
         </form>
       </div>
-
-
-
-
-
-
-
-
-
-
       </div>
     );
   }
