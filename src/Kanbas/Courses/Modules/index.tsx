@@ -1,95 +1,84 @@
+import LessonControlButtons from "./LessonControlButtons";
+import ModuleControlButtons from "./ModuleControlButtons";
+import ModulesControls from "./ModulesControls";
+import { BsGripVertical } from "react-icons/bs";
+
 export default function Modules() {
     return (
       <div>
-        <button id="wd-collapse-all">Collapse All</button> <button id="wd-view-progress">View Progress</button> <select id="wd-select-one">
-            <option value="PUBLISHALL">Publish All</option>
-            <option value="OPTION1">Option 1</option>
-        </select> <button id="wd-add-module">+ Module</button>
-        
-        <ul id="wd-modules">
-          <li className="wd-module">
-            <div className="wd-title">Week 1 - Course Introduction, Syllabus, Agenda, Internet, Web, HTML, Assignment 1</div>
-            <ul className="wd-lessons">
-              <li className="wd-lesson">
-                    <span className="wd-title">LEARNING OBJECTIVES</span>
-                    <ul className="wd-content">
-                    <li className="wd-content-item">Introduction to the course</li>
-                    <li className="wd-content-item">Learn what is Web Development</li>
-                    <li className="wd-content-item">Creating a development environment</li>
-                    <li className="wd-content-item">Creating a Web Application</li>
-                    <li className="wd-content-item">Getting started with the 1st assignment</li>
-                    </ul>
-                </li>
-                <li>
-                    <span className="wd-title">READING</span>
-                    <ul className="wd-content">
-                    <li className="wd-content-item">Full Stack Developer - Chapter 1 - Introduction</li>
-                    <li className="wd-content-item">Full Stack Developer - Chapter 2 - Creating User Interfaces With HTML</li>
-                    </ul>
-                </li>
-                <li>
-                    <span className="wd-title">SLIDES</span>
-                    <ul className="wd-content">
-                    <li className="wd-content-item">Introduction to Web Development</li>
-                    <li className="wd-content-item">Creating an HTTP server with Node.js</li>
-                    <li className="wd-content-item">Creating a React Application</li>
-                    <li className="wd-content-item">Commit your source to GitHub.com</li>
-                    <li className="wd-content-item">Deploying to Netlify</li>
-                    <li className="wd-content-item">Deploying multiple branches in Netlify</li>
-                    <li className="wd-content-item">Kanbas Web App on Netlify</li>
-                    </ul>
-                </li>
-                <li>
-                    <span className="wd-title">A1 LAB</span>
-                    <ul className="wd-content">
-                    <li className="wd-content-item">Introduction to HTML and the DOM</li>
-                    <li className="wd-content-item">Formatting Web content with Headings and Paragraphs</li>
-                    <li className="wd-content-item">Formatting content with Lists and Tables</li>
-                    <li className="wd-content-item">Creating Web Forms</li>
-                    <li className="wd-content-item">Navigating with Anchors</li>
-                    <li className="wd-content-item">Single Page Navigation</li>
-                    </ul>
-              </li>
-            </ul>
-          </li>
-          <li className="wd-module">
-            <div className="wd-title">Week 2 - Formatting User Interfaces with HTML</div>
-            <ul className="wd-lessons">
-              <li className="wd-lesson">
-                <span className="wd-title">LEARNING OBJECTIVES</span>
-                    <ul className="wd-content">
-                    <li className="wd-content-item">Learn how to create user interfaces with HTML</li>
-                    <li className="wd-content-item">Keep working on assignment 1</li>
-                    <li className="wd-content-item">Deploy the assignment to Netlify</li>
-                    </ul>
-                </li>
-                <li>
-                    <span className="wd-title">READING</span>
-                    <ul className="wd-content">
-                    <li className="wd-content-item">Full Stack Developer - Chapter 1 - Introduction</li>
-                    <li className="wd-content-item">Full Stack Developer - Chapter 2 - Creating User Interfaces With HTML</li>
-                    </ul>
-                </li>
-                <li>
-                    <span className="wd-title">SLIDES</span>
-                    <ul className="wd-content">
-                    <li className="wd-content-item">Embedding content with Iframes</li>
-                    <li className="wd-content-item">Drawing with Scalable Vector Graphics</li>
-                    </ul>
-                </li>
-                <li>
-                    <span className="wd-title">A1 KANBAS</span>
-                    <ul className="wd-content">
-                    <li className="wd-content-item">Implementing the Kanbas Account Screens</li>
-                    <li className="wd-content-item">Implementing the Kanbas Dashboard Screen</li>
-                    <li className="wd-content-item">Implementing the Kanbas Courses Screen</li>
-                    <li className="wd-content-item">Implementing the Kanbas Modules Screen</li>
-                    <li className="wd-content-item">Implementing the Kanbas Assignments Screens</li>
-                    <li className="wd-content-item">Kanbas Web App on Netlify</li>
-                    </ul>
-              </li>
-            </ul>
-          </li>
+        <ModulesControls /><br /><br /><br /><br />
+
+        <ul id="wd-modules" className="list-group rounded-0">
+        <li className="wd-module list-group-item p-0 mb-5 fs-5 border-gray">
+          <div className="wd-title p-3 ps-2 bg-secondary"><BsGripVertical className="me-2 fs-3" />Week 1 - Course Introduction, Syllabus, Agenda, Internet, Web, HTML, Assignment 1<ModuleControlButtons /></div>
+          <ul className="wd-lessons list-group rounded-0">
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />LEARNING OBJECTIVES<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Introduction to the course<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Learn what is Web Development<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Creating a development environment<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Getting started with the 1st assignment<LessonControlButtons /></li>
+          </ul>
+
+          <ul className="wd-lessons list-group rounded-0">
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />READING<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Full Stack Developer - Chapter 1 - Introduction<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Full Stack Developer - Chapter 2 - Creating User Interfaces With HTML<LessonControlButtons /></li>
+          </ul>
+
+          <ul className="wd-lessons list-group rounded-0">
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />SLIDES<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Introduction to Web Development<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Creating an HTTP server with Node.js<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Creating a React Application<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Commit your source to GitHub.com<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Deploying to Netlify<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Deploying multiple branches in Netlify<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Kanbas Web App on Netlify<LessonControlButtons /></li>
+          </ul>
+
+          <ul className="wd-lessons list-group rounded-0">
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />A1 LAB<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Introduction to HTML and the DOM<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Formatting Web content with Headings and Paragraphs<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Formatting content with Lists and Tables<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Creating Web Forms<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Navigating with Anchors<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Single Page Navigation<LessonControlButtons /></li>
+          </ul>
+
+        </li>
+
+        <li className="wd-module list-group-item p-0 mb-5 fs-5 border-gray">
+          <div className="wd-title p-3 ps-2 bg-secondary"><BsGripVertical className="me-2 fs-3" />Week 2 - Formatting User Interfaces with HTML <ModuleControlButtons /></div>
+          <ul className="wd-lessons list-group rounded-0">
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />LEARNING OBJECTIVES<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Learn how to create user interfaces with HTML<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Keep working on assignment 1<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Deploy the assignment to Netlify<LessonControlButtons /></li>
+          </ul>
+
+          <ul className="wd-lessons list-group rounded-0">
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />READING<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Full Stack Developer - Chapter 1 - Introduction<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Full Stack Developer - Chapter 2 - Creating User Interfaces With HTML<LessonControlButtons /></li>
+          </ul>
+
+          <ul className="wd-lessons list-group rounded-0">
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />SLIDES<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Embedding content with Iframes<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Drawing with Scalable Vector Graphics<LessonControlButtons /></li>
+          </ul>
+
+          <ul className="wd-lessons list-group rounded-0">
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />A1 KANBAS<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Implementing the Kanbas Account Screens<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Implementing the Kanbas Dashboard Screen<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Implementing the Kanbas Courses Screen<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Implementing the Kanbas Modules Screen<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Implementing the Kanbas Assignments Screens<LessonControlButtons /></li>
+            <li className="wd-lesson list-group-item p-3 ps-1"><BsGripVertical className="me-2 fs-3" />Kanbas Web App on Netlify<LessonControlButtons /></li>
+          </ul>
+        </li>   
         </ul>
       </div>
   );}
