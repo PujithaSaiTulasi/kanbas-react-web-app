@@ -8,7 +8,7 @@ export default function Labs() {
     <div>
       <h1>Labs</h1>
       <Routes>
-        <Route path="/" element={<div><Lab1 /></div>} />
+        <Route path="/" element={<div><Lab2 /></div>} />
         <Route path="Lab1" element={<Lab1 />} />
         <Route path="Lab2" element={<Lab2 />} />
         <Route path="Lab3" element={<Lab3 />} />
