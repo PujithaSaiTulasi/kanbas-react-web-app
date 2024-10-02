@@ -12,7 +12,7 @@ export default function Dashboard() {
               <img src="/images/reactjs.jpg"  width="100%" height={160} />
               <div  className="card-body">
                   <h5 className="wd-dashboard-course-title card-title">CS1234 React JS</h5>
-                  <p className="wd-dashboard-course-title card-text"> Full Stack software developer </p>
+                  <p className="wd-dashboard-course-title card-text"> Full Stack software developer <br/> 202510_1 Fall 2025 Semester Full Term</p>
                   <button className="btn btn-primary"> Go </button>
               </div>
             </Link>
@@ -24,7 +24,7 @@ export default function Dashboard() {
             <Link className="wd-dashboard-course-link text-decoration-none text-dark" to="/Kanbas/Courses/5610/Home">
               <img src="/images/wd.jpg"  width="100%" height={160} />
               <div  className="card-body">
-                  <h5 className="wd-dashboard-course-title card-title">CS5610 Web Development</h5>
+                  <h5 className="wd-dashboard-course-title card-title">CS5610 Web Application Development</h5>
                   <p className="wd-dashboard-course-title card-text"> Web Application Development <br/> 202510_1 Fall 2025 Semester Full Term</p>
                   <button className="btn btn-primary"> Go </button>
               </div>
@@ -38,7 +38,7 @@ export default function Dashboard() {
               <img src="/images/mad.jpg"  width="100%" height={160} />
               <div  className="card-body">
                   <h5 className="wd-dashboard-course-title card-title">CS5520 Mobile Application Development</h5>
-                  <p className="wd-dashboard-course-title card-text"> Mobile Application Development </p>
+                  <p className="wd-dashboard-course-title card-text"> Mobile Application Development <br/> 202510_1 Fall 2025 Semester Full Term</p>
                   <button className="btn btn-primary"> Go </button>
               </div>
             </Link>
@@ -51,7 +51,7 @@ export default function Dashboard() {
               <img src="/images/pm.jpg"  width="100%" height={160} />
               <div  className="card-body">
                   <h5 className="wd-dashboard-course-title card-title">EMGT5220 Engineering Project Management</h5>
-                  <p className="wd-dashboard-course-title card-text"> Engineering Project Management </p>
+                  <p className="wd-dashboard-course-title card-text"> Engineering Project Management <br/> 202510_1 Fall 2025 Semester Full Term</p>
                   <button className="btn btn-primary"> Go </button>
               </div>
             </Link>
@@ -64,7 +64,7 @@ export default function Dashboard() {
               <img src="/images/fm.jpg"  width="100%" height={160} />
               <div  className="card-body">
                   <h5 className="wd-dashboard-course-title card-title">EMGT6305 Financial Management for Engrs</h5>
-                  <p className="wd-dashboard-course-title card-text"> Financial Management for Engineers </p>
+                  <p className="wd-dashboard-course-title card-text"> Financial Management for Engineers <br/> 202510_1 Fall 2025 Semester Full Term</p>
                   <button className="btn btn-primary"> Go </button>
               </div>
             </Link>
@@ -77,7 +77,7 @@ export default function Dashboard() {
               <img src="/images/pd.jpg"  width="100%" height={160} />
               <div  className="card-body">
                   <h5 className="wd-dashboard-course-title card-title">GE5100 Product Developement for Engrs</h5>
-                  <p className="wd-dashboard-course-title card-text"> Product Developement for Engineers </p>
+                  <p className="wd-dashboard-course-title card-text"> Product Developement for Engineers <br/> 202510_1 Fall 2025 Semester Full Term</p>
                   <button className="btn btn-primary"> Go </button>
               </div>
             </Link>
@@ -90,7 +90,7 @@ export default function Dashboard() {
               <img src="/images/ps.jpg"  width="100%" height={160} />
               <div  className="card-body">
                   <h5 className="wd-dashboard-course-title card-title">IE6200 Engineering Probs & Stats</h5>
-                  <p className="wd-dashboard-course-title card-text"> Engineering Probability & Statistics </p>
+                  <p className="wd-dashboard-course-title card-text"> Engineering Probability & Statistics <br/> 202510_1 Fall 2025 Semester Full Term</p>
                   <button className="btn btn-primary"> Go </button>
               </div>
             </Link>
@@ -103,7 +103,7 @@ export default function Dashboard() {
               <img src="/images/or.jpg"  width="100%" height={160} />
               <div  className="card-body">
                   <h5 className="wd-dashboard-course-title card-title">OR6205 Deterministic Ops Research</h5>
-                  <p className="wd-dashboard-course-title card-text"> Deterministic Operations Research </p>
+                  <p className="wd-dashboard-course-title card-text"> Deterministic Operations Research <br/> 202510_1 Fall 2025 Semester Full Term</p>
                   <button className="btn btn-primary"> Go </button>
               </div>
             </Link>

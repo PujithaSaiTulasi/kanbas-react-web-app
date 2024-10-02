@@ -13,6 +13,25 @@ body * {  font-family: Arial, Helvetica, sans-serif;  }
   border-left: 3px solid black !important;
 }
 
+#wd-kanbas-navigation {
+  background-color: black; 
+}
+
+.kanbas-nav .list-group-item {
+  background-color: black; 
+  color: white; 
+  padding: 10px 10px;
+}
+
+.kanbas-nav .list-group-item.active {
+  background-color: white; 
+  color: red; 
+}
+
+.kanbas-nav .list-group-item:not(#wd-account-link) .fs-1 {
+  color: red; 
+}
+
 .btn-secondary {
   --bs-btn-color: #000 !important;
   --bs-btn-bg: #c7cdd1 !important;
@@ -30,13 +49,6 @@ body * {  font-family: Arial, Helvetica, sans-serif;  }
 }
 .wd-assignment-list-item {
   border-left: 3px solid green !important;
-}
-.search-and-buttons-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-  width: 100%; 
 }
 
 .search-container {
@@ -63,11 +75,6 @@ body * {  font-family: Arial, Helvetica, sans-serif;  }
   transform: translateY(-50%);
   font-size: 18px;
   color: #888;
-}
-
-.button-group {
-  display: flex;
-  gap: 5px;
 }
 
 .red-text {

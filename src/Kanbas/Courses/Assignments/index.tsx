@@ -2,35 +2,22 @@ import { FaPlus } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 import { BsGripVertical } from "react-icons/bs";
 import LessonControlButtons from "../Modules/LessonControlButtons";
-import AssignmentControlButtons from "./AssignmentControlButtons";
+import AssignmentTitleControlButtons from "./AssignmentTitleControlButtons";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import { GiNotebook } from "react-icons/gi";
 
 export default function Assignments() {
     return (
-        <div id="wd-assignments" className="p-3">
+        <div id="wd-assignments-controls" className="p-3">
+            
             <div className="search-and-buttons-container mb-4 d-flex justify-content-between">
                 <div className="search-container d-flex align-items-center">
                     <CiSearch className="search-icon me-2" />
-                    <input 
-                        type="text" 
-                        className="search-input form-control" 
-                        placeholder="Search..." 
-                    />
+                    <input type="text" className="search-input form-control" placeholder="Search..."/>
                 </div>
-                <div className="button-group">
-                    <button 
-                        id="wd-add-group-btn" 
-                        className="btn btn-lg btn-secondary me-1"
-                    >
-                        <FaPlus className="position-relative me-2" style={{ bottom: "1px" }} /> Group
-                    </button>
-                    <button 
-                        id="wd-add-assignment-btn" 
-                        className="btn btn-lg btn-danger me-1"
-                    >
-                        <FaPlus className="position-relative me-2" style={{ bottom: "1px" }} /> Assignment
-                    </button> 
+                <div className="button-group"> 
+                    <button id="wd-add-group-btn" className="btn btn-lg btn-secondary me-1"><FaPlus className="position-relative me-1" style={{ bottom: "1px" }} />Group</button>
+                    <button id="wd-add-assignment-btn" className="btn btn-lg btn-danger me-1"><FaPlus className="position-relative me-1" style={{ bottom: "1px" }} />Assignment</button> 
                 </div>
             </div>
 
@@ -42,7 +29,7 @@ export default function Assignments() {
                             <MdOutlineArrowDropDown className="me-2 fs-3" />
                             ASSIGNMENTS
                         </div>
-                        <AssignmentControlButtons />
+                        <AssignmentTitleControlButtons />
                     </div>
 
                     <ul className="wd-assignment-list list-group rounded-0">
