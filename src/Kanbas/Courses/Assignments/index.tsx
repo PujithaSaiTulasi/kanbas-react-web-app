@@ -6,7 +6,13 @@ import AssignmentTitleControlButtons from "./AssignmentTitleControlButtons";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import { GiNotebook } from "react-icons/gi";
 
+import { useParams } from "react-router";
+import * as db from "../../Database";
+import { Link } from "react-router-dom";
+
 export default function Assignments() {
+    const { cid } = useParams();
+    const assignments = db.assignments;
     return (
         <div id="wd-assignments-controls" className="p-3">
             
@@ -33,48 +39,22 @@ export default function Assignments() {
                     </div>
 
                     <ul className="wd-assignment-list list-group rounded-0">
+                    {assignments
+                    .filter((assignment: any) => assignment.course === cid)
+                    .map((assignment: any) => (
                         <li className="wd-assignment-list-item list-group-item p-3 ps-1">
                             <div className="d-flex align-items-center">
                                 <BsGripVertical className="me-3 fs-3" />
                                 <GiNotebook className="me-3 fs-3" style={{ color: 'green' }} />
                                 <div className="flex-grow-1">
-                                    <a className="wd-assignment-link fw-bold" href="#/Kanbas/Courses/1234/Assignments/123"> A1 </a><br />
-                                    <span className="red-text">Multiple Modules</span> | <span className="bold-darkgray-text">Not available until</span> May 6 at 12:00am |<br />
-                                    <span className="bold-darkgray-text">Due</span> May 13 at 11:59pm | 100 pts
+                                    <Link to={`/Kanbas/Courses/${cid}/Assignments/${assignment._id}`}> {assignment.title} </Link><br />
+                                    <span className="red-text">Multiple Modules</span> | <span className="bold-darkgray-text">Not available until</span> {assignment.available} |<br />
+                                    <span className="bold-darkgray-text">Due</span> {assignment.due} | {assignment.points} pts
                                 </div>
                                 <LessonControlButtons /> 
                             </div>
                         </li>
-                    </ul>
-
-                    <ul className="wd-assignment-list list-group rounded-0">
-                        <li className="wd-assignment-list-item list-group-item p-3 ps-1">
-                            <div className="d-flex align-items-center">
-                                <BsGripVertical className="me-3 fs-3" />
-                                <GiNotebook className="me-3 fs-3" style={{ color: 'green' }} />
-                                <div className="flex-grow-1">
-                                    <a className="wd-assignment-link fw-bold" href="#/Kanbas/Courses/1234/Assignments/123"> A2 </a><br />
-                                    <span className="red-text">Multiple Modules</span> | <span className="bold-darkgray-text">Not available until</span> May 13 at 12:00am |<br />
-                                    <span className="bold-darkgray-text">Due</span> May 20 at 11:59pm | 100 pts
-                                </div>
-                                <LessonControlButtons /> 
-                            </div>
-                        </li>
-                    </ul>
-
-                    <ul className="wd-assignment-list list-group rounded-0">
-                        <li className="wd-assignment-list-item list-group-item p-3 ps-1">
-                            <div className="d-flex align-items-center">
-                                <BsGripVertical className="me-3 fs-3" />
-                                <GiNotebook className="me-3 fs-3" style={{ color: 'green' }} />
-                                <div className="flex-grow-1">
-                                    <a className="wd-assignment-link fw-bold" href="#/Kanbas/Courses/1234/Assignments/123"> A3 </a><br />
-                                    <span className="red-text">Multiple Modules</span> | <span className="bold-darkgray-text">Not available until</span> May 20 at 12:00am |<br />
-                                    <span className="bold-darkgray-text">Due</span> May 27 at 11:59pm | 100 pts
-                                </div>
-                                <LessonControlButtons /> 
-                            </div>
-                        </li>
+                         ))}
                     </ul>
                 </li>
             </ul>

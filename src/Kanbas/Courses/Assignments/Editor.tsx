@@ -1,11 +1,39 @@
 import { RxCross2 } from "react-icons/rx";
+
+import { useParams } from "react-router";
+import * as db from "../../Database";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+
 export default function AssignmentEditor() {
+    const { cid, aid } = useParams(); 
+    const assignments = db.assignments;
+
+    const assignment = assignments.find((assignment) => assignment.course === cid && assignment._id === aid);  
+
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [points, setPoints] = useState('');
+    const [available, setAvailable] = useState('');
+    const [due, setDue] = useState('');
+
+    useEffect(() => {
+        if (assignment) {
+            setTitle(assignment.title || '');
+            setDescription(assignment.description || '');
+            setPoints(assignment.points || '');
+            setAvailable(assignment.availableTS || '');
+            setDue(assignment.dueTS || '');
+        }
+    }, [assignment]);
+
     return (
+    
     <div id="wd-assignments-editor">
-
+   
         <h4><label htmlFor="wd-name">Assignment Name</label></h4>
-
-        <input id="wd-name" className="form-control mb-3" value="A1" />
+        
+        <input id="wd-name" className="form-control mb-3" value={title} onChange={(e) => setTitle(e.target.value)} />
         
         <textarea id="wd-description" className="form-control mb-3" rows={6} 
         defaultValue={`
@@ -28,7 +56,7 @@ The Kanban application should include a link to navigate back to the landing pag
         <div className="row mb-3">
             <label htmlFor="wd-points" className="col-sm-3 col-form-label text-end">Points</label>
             <div className="col-sm-9">
-            <input id="wd-points" className="form-control" type="number" defaultValue={100} />
+            <input id="wd-points" className="form-control" value={points} onChange={(e) => setPoints(e.target.value)} />
             </div>
         </div>
 
@@ -102,13 +130,13 @@ The Kanban application should include a link to navigate back to the landing pag
 
                 <div className="col">
                 <label htmlFor="wd-due-date" className="col-form-label fw-bold">Due</label>
-                <input type="datetime-local" id="wd-due-date" defaultValue="2024-05-13T23:59" className="form-control mb-3" />
+                <input type="datetime-local" id="wd-due-date" className="form-control mb-3" value={due} onChange={(e) => setDue(e.target.value)} />
                 </div>
 
                 <div className="row">
                     <div className="col-sm-6">
                         <label htmlFor="wd-available-from" className="col-form-label fw-bold">Available From</label>
-                        <input type="datetime-local" id="wd-available-from" defaultValue="2024-05-06T23:59" className="form-control" />
+                        <input type="datetime-local" id="wd-available-from" className="form-control" value={available} onChange={(e) => setAvailable(e.target.value)}/>
                     </div>
                     <div className="col-sm-6">
                         <label htmlFor="wd-available-until" className="col-form-label fw-bold">Until</label>
@@ -120,11 +148,12 @@ The Kanban application should include a link to navigate back to the landing pag
         </div><hr />
 
         <div className="text-end">
-        <button id="wd-cancel" type="button" className="btn btn-secondary me-2">Cancel</button>
-        <button id="wd-save" type="button" className="btn btn-danger">Save</button>
+        <Link to={`/Kanbas/Courses/${cid}/Assignments`} id="wd-cancel" className="btn btn-secondary me-2">Cancel</Link>
+        <Link to={`/Kanbas/Courses/${cid}/Assignments`} id="wd-save" className="btn btn-danger">Save</Link>    
         </div>
 
         </div>
+        
     </div>
 );}
 
