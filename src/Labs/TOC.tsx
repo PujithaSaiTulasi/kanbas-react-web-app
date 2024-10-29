@@ -10,6 +10,8 @@ export default function TOC() {
           className={`nav-link ${pathname.includes("Lab2") ? "active" : ""}`}>Lab 2</a></li>
       <li className="nav-item"><a id="wd-a3" href="#/Labs/Lab3"
           className={`nav-link ${pathname.includes("Lab3") ? "active" : ""}`}>Lab 3</a></li>
+      <li className="nav-item"><a id="wd-a4" href="#/Labs/Lab4"
+          className={`nav-link ${pathname.includes("Lab4") ? "active" : ""}`}>Lab 4</a></li>
       {/* <li className="nav-item"><a id="wd-k" href="#/Kanbas" className="nav-link">Kanbas</a></li>
       <li className="nav-item"><a id="wd-github" href="https://github.com/PujithaSaiTulasi/kanbas-react-web-app/tree/a3" target="_blank"
           className="nav-link">My GitHub</a></li> */}
