@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import LessonControlButtons from "./LessonControlButtons";
 import ModuleControlButtons from "./ModuleControlButtons";
 import ModulesControls from "./ModulesControls";
