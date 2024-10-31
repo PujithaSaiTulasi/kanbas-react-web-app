@@ -1,4 +1,3 @@
-import { courses } from "../Database";
 import { FaAlignJustify } from "react-icons/fa";
 import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/Editor";

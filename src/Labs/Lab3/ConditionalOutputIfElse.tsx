@@ -1,4 +1,3 @@
-
 const ConditionalOutputIfElse = () => {
     const loggedIn = true;
     if(loggedIn) {

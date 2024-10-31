@@ -1,4 +1,4 @@
-import { Route, Routes, Navigate, useNavigate } from "react-router";
+import { Route, Routes} from "react-router";
 
 import Lab1 from "./Lab1";
 import Lab2 from "./Lab2";

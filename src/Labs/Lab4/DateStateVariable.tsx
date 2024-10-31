@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 export default function DateStateVariable() {
   const [startDate, setStartDate] = useState(new Date());
   const dateObjectToHtmlDateString = (date: Date) => {

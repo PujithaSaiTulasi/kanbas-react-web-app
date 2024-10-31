@@ -5,8 +5,7 @@ import ModulesControls from "./ModulesControls";
 import { BsGripVertical } from "react-icons/bs";
 
 import { useParams } from "react-router";
-import { addModule, editModule, updateModule, deleteModule }
-  from "./reducer";
+import { addModule, editModule, updateModule, deleteModule } from "./reducer";
 import { useSelector, useDispatch } from "react-redux";
 import ProtectedContent from "../../Account/ProtectedContent";
 

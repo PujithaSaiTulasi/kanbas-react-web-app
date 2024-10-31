@@ -5,7 +5,6 @@ export default function AccountNavigation() {
   const { currentUser } = useSelector((state: any) => state.accountReducer);
   const { pathname } = useLocation();
 
-  // Conditional links based on whether the user is logged in or not
   const links = currentUser 
     ? [{ label: "Profile", path: "/Kanbas/Account/Profile" }] 
     : [
