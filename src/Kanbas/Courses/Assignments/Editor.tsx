@@ -1,62 +1,71 @@
 import { RxCross2 } from "react-icons/rx";
-
-import { useParams } from "react-router";
-import * as db from "../../Database";
-import { Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router";
 import { useState, useEffect } from "react";
+import { addAssignment, updateAssignment } from "./reducer";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function AssignmentEditor() {
-    const { cid, aid } = useParams(); 
-    const assignments = db.assignments;
+    const { cid, aid } = useParams();
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-    const assignment = assignments.find((assignment) => assignment.course === cid && assignment._id === aid);  
+    const assignment = useSelector((state: any) => 
+        state.assignmentsReducer.assignments.find((a: any) => a.course === cid && a._id === aid)
+    );
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [points, setPoints] = useState('');
     const [available, setAvailable] = useState('');
     const [due, setDue] = useState('');
+    const [until, setUntil] = useState('');
 
     useEffect(() => {
         if (assignment) {
             setTitle(assignment.title || '');
             setDescription(assignment.description || '');
             setPoints(assignment.points || '');
-            setAvailable(assignment.availableTS || '');
-            setDue(assignment.dueTS || '');
+            setAvailable(assignment.available || '');
+            setDue(assignment.due || '');
+            setUntil(assignment.until || '');
         }
     }, [assignment]);
 
+    const handleSave = () => {
+        const updatedAssignment = {
+            ...assignment,
+            course: cid,
+            title,
+            description,
+            points,
+            available,
+            due,
+            until,
+        };
+        if (assignment) {
+            dispatch(updateAssignment(updatedAssignment));
+        } else {
+            dispatch(addAssignment(updatedAssignment));
+        }
+        navigate(`/Kanbas/Courses/${cid}/Assignments`);
+    };
+    
     return (
     
     <div id="wd-assignments-editor">
    
         <h4><label htmlFor="wd-name">Assignment Name</label></h4>
         
-        <input id="wd-name" className="form-control mb-3" value={title} onChange={(e) => setTitle(e.target.value)} />
+        <input id="wd-name" placeholder="Assignment Title" className="form-control mb-3" value={title} onChange={(e) => setTitle(e.target.value)} />
         
-        <textarea id="wd-description" className="form-control mb-3" rows={6} 
-        defaultValue={`
-The assignment is available online
-
-Submit a link to the landing page of your Web application running on Netlify.
-
-The landing page should include the following:
-
-• Your full name and section
-• Links to each of the lab assignments
-• Link to the Kanban application
-• Links to all relevant source code repositories
-
-The Kanban application should include a link to navigate back to the landing page.`}
-        /><br />
+        <textarea id="wd-description" placeholder="Assignment Description" className="form-control mb-3" rows={6} value={description}  onChange={(e) => setDescription(e.target.value)} /><br />
 
         <div className="container">
         {/* Points */}
         <div className="row mb-3">
             <label htmlFor="wd-points" className="col-sm-3 col-form-label text-end">Points</label>
             <div className="col-sm-9">
-            <input id="wd-points" className="form-control" value={points} onChange={(e) => setPoints(e.target.value)} />
+            <input id="wd-points" placeholder="Assignment Points" className="form-control" value={points} onChange={(e) => setPoints(e.target.value)} />
             </div>
         </div>
 
@@ -140,7 +149,7 @@ The Kanban application should include a link to navigate back to the landing pag
                     </div>
                     <div className="col-sm-6">
                         <label htmlFor="wd-available-until" className="col-form-label fw-bold">Until</label>
-                        <input type="datetime-local" id="wd-available-until" defaultValue="2024-05-20T23:59" className="form-control" />
+                        <input type="datetime-local" id="wd-available-until" className="form-control" value={until} onChange={(e) => setUntil(e.target.value)} />
                     </div>
                 </div>
                 </div>
@@ -148,8 +157,8 @@ The Kanban application should include a link to navigate back to the landing pag
         </div><hr />
 
         <div className="text-end">
-        <Link to={`/Kanbas/Courses/${cid}/Assignments`} id="wd-cancel" className="btn btn-secondary me-2">Cancel</Link>
-        <Link to={`/Kanbas/Courses/${cid}/Assignments`} id="wd-save" className="btn btn-danger">Save</Link>    
+        <button id="wd-cancel" className="btn btn-secondary me-2" onClick={() => navigate(-1)}>Cancel</button>
+        <button id="wd-save" className="btn btn-danger" onClick={handleSave}>Save</button>  
         </div>
 
         </div>

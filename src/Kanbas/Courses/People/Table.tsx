@@ -1,8 +1,6 @@
 import { FaUserCircle } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import * as db from "../../Database";
-import React from "react";
-
 
 export default function PeopleTable() {
   const { cid } = useParams();
