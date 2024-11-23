@@ -43,11 +43,9 @@ export default function Dashboard({
   useEffect(() => {
     const initializeDashboard = async () => {
       try {
-        // Fetch all courses
         const allCoursesData = await fetchAllCourses();
         setAllCourses(allCoursesData);
 
-        // Fetch enrollments if user is a student
         if (currentUser.role === "STUDENT") {
           const enrollments = await getEnrollments(currentUser._id);
           dispatch(setEnrollments(enrollments));
