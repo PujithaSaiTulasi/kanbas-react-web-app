@@ -11,7 +11,6 @@ export default function TOC() {
       <li><Link to="/Labs/Lab5">Lab 5</Link></li>
       <li><Link to="/Kanbas">Kanbas</Link></li>
       <li><a id="wd-github" href="https://github.com/PujithaSaiTulasi/kanbas-react-web-app/tree/a5">Github</a></li>
-      <li><a id="wd-render" href="https://kanbas-node-server-app-z71u.onrender.com">Render</a></li>
       <li><a id="wd-render" href="https://kanbas-node-server-app-z71u-872075d62c77.herokuapp.com/">Heroku</a></li>
      
     </ul>
