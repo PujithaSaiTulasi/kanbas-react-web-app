@@ -9,8 +9,11 @@ import { GiNotebook } from "react-icons/gi";
 import { useParams, useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteAssignment } from "./reducer";
+import { setAssignments, deleteAssignment, addAssignment } from "./reducer";
 import ProtectedContent from "../../Account/ProtectedContent";
+import { useEffect } from "react";
+import * as coursesClient from "../client";
+import * as assignmentsClient from "./client";
 
 export default function Assignments() {
     const { cid } = useParams();
@@ -18,11 +21,24 @@ export default function Assignments() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { currentUser } = useSelector((state: any) => state.accountReducer);
-
+    
+    const removeAssignment = async (assignmentId: string) => {
+        await assignmentsClient.deleteAssignment(assignmentId);
+        dispatch(deleteAssignment(assignmentId));
+    };
+    
+    const fetchAssignments = async () => {
+        const assignments = await coursesClient.findAssignmentsForCourse(cid as string);
+        dispatch(setAssignments(assignments));
+    };
+    useEffect(() => {
+        fetchAssignments();
+    }, []);
+    
     const handleDeleteAssignment = (assignmentId: string) => {
         const confirmDelete = window.confirm("Are you sure you want to delete this assignment?");
         if (confirmDelete) {
-            dispatch(deleteAssignment(assignmentId));
+            removeAssignment(assignmentId)
         }
     };
 
@@ -54,9 +70,7 @@ export default function Assignments() {
                     </div>
 
                     <ul className="wd-assignment-list list-group rounded-0">
-                    {assignments
-                    .filter((assignment: any) => assignment.course === cid)
-                    .map((assignment: any) => (
+                    {assignments.map((assignment: any) => (
                         <li className="wd-assignment-list-item list-group-item p-3 ps-1">
                             <div className="d-flex align-items-center">
                                 <BsGripVertical className="me-3 fs-3" />
@@ -74,7 +88,8 @@ export default function Assignments() {
                                     <span className="bold-darkgray-text">Due</span> {assignment.due} | {assignment.points} pts
                                 </div>
                                 <ProtectedContent><LessonControlButtons assignmentId={assignment._id}
-                                deleteAssignment={() => handleDeleteAssignment(assignment._id)}/></ProtectedContent>
+                                deleteAssignment={() => handleDeleteAssignment(assignment._id)}/>
+                                </ProtectedContent>
                             </div>
                         </li>
                          ))}
