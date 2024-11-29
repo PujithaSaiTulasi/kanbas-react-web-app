@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 export default function AccountNavigation() {
   const { currentUser } = useSelector((state: any) => state.accountReducer);
   const { pathname } = useLocation();
-
+ 
   const links = currentUser 
     ? [{ label: "Profile", path: "/Kanbas/Account/Profile" }] 
     : [
@@ -23,6 +23,9 @@ export default function AccountNavigation() {
           {link.label}
         </Link>
       ))}
+       {currentUser && currentUser.role === "ADMIN" && (
+       <Link to={`/Kanbas/Account/Users`} className={`list-group-item border-0 ${pathname === "/Kanbas/Account/Users" ? "active text-black bg-white" : "text-danger"}`}> Users </Link> )}
+
     </div>
   );
 }
