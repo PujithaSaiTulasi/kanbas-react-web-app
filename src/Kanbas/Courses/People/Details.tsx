@@ -115,12 +115,8 @@ export default function PeopleDetails() {
       <br />
       <b>Total Activity:</b> <span className="wd-total-activity"> {user.totalActivity} </span>
       <hr />
-      <button onClick={() => deleteUser(uid)} className="btn btn-danger float-end wd-delete">
-        Delete
-      </button>
-      <button onClick={() => navigate(-1)} className="btn btn-secondary float-start me-2 wd-cancel">
-        Cancel
-      </button>
+      <button onClick={() => deleteUser(uid)} className="btn btn-danger float-end wd-delete" > Delete </button>
+      <button onClick={() => navigate(-1)} className="btn btn-secondary float-start float-end me-2 wd-cancel" > Cancel </button>
     </div>
   );
 }
