@@ -9,7 +9,7 @@ import { GiNotebook } from "react-icons/gi";
 import { useParams, useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { setAssignments, deleteAssignment, addAssignment } from "./reducer";
+import { setAssignments, deleteAssignment } from "./reducer";
 import ProtectedContent from "../../Account/ProtectedContent";
 import { useEffect } from "react";
 import * as coursesClient from "../client";
@@ -56,7 +56,6 @@ export default function Assignments() {
                     <button id="wd-add-assignment-btn" className="btn btn-lg btn-danger me-1" onClick={() => navigate(`/Kanbas/Courses/${cid}/Assignments/new`)}><FaPlus className="position-relative me-1" style={{ bottom: "1px" }} />Assignment</button> 
                 </div></ProtectedContent>
             </div>
-            
             
             <ul id="wd-assignments" className="list-group rounded-0">
                 <li className="wd-assignment list-group-item p-0 mb-5 fs-5 border-gray">
