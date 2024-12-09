@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { FaUserCircle, FaCheck } from "react-icons/fa";
 import { IoCloseSharp } from "react-icons/io5";
 import { useParams, useNavigate } from "react-router";
-import { Link } from "react-router-dom";
 import * as client from "../../Account/client";
 import { FaPencil } from "react-icons/fa6";
 

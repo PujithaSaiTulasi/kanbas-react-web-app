@@ -15,6 +15,7 @@ import { useEffect } from "react";
 import * as coursesClient from "../client";
 import * as assignmentsClient from "./client";
 
+
 export default function Assignments() {
     const { cid } = useParams();
     const { assignments } = useSelector((state: any) => state.assignmentsReducer);
@@ -42,6 +43,18 @@ export default function Assignments() {
         }
     };
 
+    const formatDate = (dateString: Date) => {
+        const date = new Date(dateString);
+        return new Intl.DateTimeFormat('en-US', {
+            month: 'short',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: true,
+        }).format(date); 
+    };
+    
+    
     return (
         <div id="wd-assignments-controls" className="p-3">
             
@@ -84,8 +97,8 @@ export default function Assignments() {
                                         <strong>{assignment.title}</strong>
                                     )}
                                     <br /> 
-                                    <span className="red-text">Multiple Modules</span> | <span className="bold-darkgray-text">Not available until</span> {assignment.available} |<br />
-                                    <span className="bold-darkgray-text">Due</span> {assignment.due} | {assignment.points} pts
+                                    <span className="red-text">Multiple Modules</span> | <span className="bold-darkgray-text">Not available until</span> {formatDate(assignment.available)} |<br />
+                                    <span className="bold-darkgray-text">Due</span> {formatDate(assignment.due)} | {assignment.points} pts
                                 </div>
                                 <ProtectedContent><LessonControlButtons assignmentId={assignment._id}
                                 deleteAssignment={() => handleDeleteAssignment(assignment._id)}/>

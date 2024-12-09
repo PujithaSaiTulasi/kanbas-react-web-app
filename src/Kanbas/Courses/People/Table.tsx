@@ -34,4 +34,3 @@ export default function PeopleTable({ users = [] }: { users?: any[] }) {
     </div> 
   );
 }
-
